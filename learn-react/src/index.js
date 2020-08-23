@@ -5,12 +5,14 @@ import './index.css';
 // import Toggle from './Toggle';
 // import LoginControl from './LoginControl';
 // import Form from "./Form";
-import Calculator from "./LiftingStateUp/Calculator";
+// import Calculator from "./LiftingStateUp/Calculator";
+// import SignUpDialog from "./Composition/SignUpDialog";
+import FilterableProductTable from "./ThinkingInReact/FilterableProductTable";
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Calculator />
+    <FilterableProductTable />
   </React.StrictMode>,
   document.getElementById('root')
 );
