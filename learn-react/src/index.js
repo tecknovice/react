@@ -1,18 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-// import Toggle from './Toggle';
-// import LoginControl from './LoginControl';
-// import Form from "./Form";
+import App from './App';
+// import Clock from "./StateAndLifeCycle/Clock"
+// import Toggle from './HandlingEvents/Toggle';
+// import LoginControl from './ConditionalRendering/LoginControl';
+// import NumberList from "./ListsAndKeys/NumberList"
+// import Blog from "./ListsAndKeys/Blog"
+// import NameForm from "./Forms/NameForm";
+// import EssayForm from "./Forms/EssayForm";
+// import FlavorForm from "./Forms/FlavorForm";
+// import Reservation from "./Forms/Reservation";
 // import Calculator from "./LiftingStateUp/Calculator";
 // import SignUpDialog from "./Composition/SignUpDialog";
-import FilterableProductTable from "./ThinkingInReact/FilterableProductTable";
+// import FilterableProductTable from "./ThinkingInReact/FilterableProductTable";
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <FilterableProductTable />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
