@@ -1,12 +1,12 @@
 import React from "react";
 export default class SearchBar extends React.Component {
     render() {
-        const { filterText, onFilterTextChange, inStockOnly, onInStockChange } = this.props;
+        const { filterText, handleFilterTextChange, inStockOnly, handleInStockChange } = this.props;
         return (
             <div>
-                <input type="text" value={filterText} onChange={onFilterTextChange} />
+                <input type="text" value={filterText} onChange={handleFilterTextChange} />
                 <br />
-                <input type="checkbox" checked={inStockOnly} onChange={onInStockChange} /> Only show products in stock
+                <input type="checkbox" checked={inStockOnly} onChange={handleInStockChange} /> Only show products in stock
             </div>
         );
     }

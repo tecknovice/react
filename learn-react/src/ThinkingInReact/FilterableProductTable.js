@@ -19,9 +19,9 @@ export default class FilterableProductTable extends React.Component {
             <div style={{ padding: '10px' }}>
                 <SearchBar
                     filterText={filterText}
-                    onFilterTextChange={this.handleFilterTextChange.bind(this)}
+                    handleFilterTextChange={this.handleFilterTextChange.bind(this)}
                     inStockOnly={inStockOnly}
-                    onInStockChange={this.handleInStockChange.bind(this)} />
+                    handleInStockChange={this.handleInStockChange.bind(this)} />
                 <ProductTable
                     PRODUCTS={PRODUCTS}
                     filterText={filterText}
