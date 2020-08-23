@@ -1,24 +1,32 @@
 import React from "react";
+import { PRODUCTS } from "./products"
 import SearchBar from "./SearchBar";
 import ProductTable from "./ProductTable";
 export default class FilterableProductTable extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            PRODUCTS: [
-                { category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football" },
-                { category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball" },
-                { category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball" },
-                { category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch" },
-                { category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5" },
-                { category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 10" }
-            ]
-        }
+        this.state = { filterText: '', inStockOnly: false }
+    }
+    handleFilterTextChange(event) {
+        this.setState({ filterText: event.target.value })
+    }
+    handleInStockChange(event) {
+        this.setState({ inStockOnly: event.target.checked })
     }
     render() {
-        return (<div style={{padding: '10px'}}>
-            <SearchBar />
-            <ProductTable PRODUCTS={this.state.PRODUCTS}/>
-        </div>);
+        const { filterText, inStockOnly } = this.state;
+        return (
+            <div style={{ padding: '10px' }}>
+                <SearchBar
+                    filterText={filterText}
+                    onFilterTextChange={this.handleFilterTextChange.bind(this)}
+                    inStockOnly={inStockOnly}
+                    onInStockChange={this.handleInStockChange.bind(this)} />
+                <ProductTable
+                    PRODUCTS={PRODUCTS}
+                    filterText={filterText}
+                    inStockOnly={inStockOnly} />
+            </div>
+        );
     }
 }
