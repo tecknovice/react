@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css"
 import SearchBar from "./SearchBar";
 import ProductTable from "./ProductTable";
 export default class FilterableProductTable extends React.Component {
@@ -12,12 +11,12 @@ export default class FilterableProductTable extends React.Component {
                 { category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball" },
                 { category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch" },
                 { category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5" },
-                { category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7" }
+                { category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 10" }
             ]
         }
     }
     render() {
-        return (<div className="table">
+        return (<div style={{padding: '10px'}}>
             <SearchBar />
             <ProductTable PRODUCTS={this.state.PRODUCTS}/>
         </div>);
