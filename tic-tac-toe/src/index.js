@@ -18,15 +18,17 @@ class Board extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            squares: Array(9).fill(null),
+            squares: [
+                'O', null, 'X',
+                'X', 'X', 'O',
+                'O', null, null,
+            ],
         }
     }
-    handleClick(e, i) {
-        console.log(i)
+    handleClick(i) {
         let newSquares = this.state.squares.slice();
         newSquares[i] = 'X';
-        console.log(newSquares)
-        this.setState({squares: newSquares})
+        this.setState({ squares: newSquares })
 
     }
     renderSquare(i) {
