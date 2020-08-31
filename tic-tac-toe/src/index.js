@@ -10,8 +10,8 @@ class Game extends React.Component {
                     <Board />
                 </div>
                 <div className="game-info">
-                    <div>{/* status */}</div>
-                    <ol>{/* TODO */}</ol>
+                    <div>phần lifting state up 2 cấp (Square => Board => Game) khó</div>
+                    <ol>phần time travel rất khó</ol>
                 </div>
             </div>
         );
