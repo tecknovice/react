@@ -12,8 +12,10 @@ import App from './App';
 // import FlavorForm from "./Forms/FlavorForm";
 // import Reservation from "./Forms/Reservation";
 // import Calculator from "./LiftingStateUp/Calculator";
+// import MouseTracker from "./LiftingStateUp/MouseTracker";
 // import SignUpDialog from "./Composition/SignUpDialog";
 // import FilterableProductTable from "./ThinkingInReact/FilterableProductTable";
+// import Hook from "./Hook/Hook"
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
