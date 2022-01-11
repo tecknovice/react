@@ -5,7 +5,7 @@ import Create from "./Create";
 import List from "./List";
 import Update from "./Update";
 
-const App = () => {
+const App = (): JSX.Element => {
   return (
     <div className="ui container">
       <BrowserRouter>

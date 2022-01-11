@@ -1,10 +1,23 @@
 import React from "react";
+import { Post } from "../interfaces/Post";
 
-export default class Form extends React.Component {
+interface FormProps {
+  handleSubmit: Function;
+  handleChange: React.ChangeEventHandler<
+    HTMLInputElement | HTMLTextAreaElement
+  >;
+  item: Post;
+  errors: {
+    title: string;
+    content: string;
+  };
+}
+
+export default class Form extends React.Component<FormProps> {
   render() {
     const { handleSubmit, handleChange, item, errors } = this.props;
     return (
-      <form className="ui form" onSubmit={handleSubmit}>
+      <form className="ui form" onSubmit={(e) => handleSubmit(e)}>
         <div className="field">
           <label>Title</label>
           <input
@@ -19,7 +32,6 @@ export default class Form extends React.Component {
         <div className="field">
           <label>Content</label>
           <textarea
-            type="text"
             name="content"
             placeholder="Content"
             value={item.content}

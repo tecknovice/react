@@ -1,20 +1,16 @@
 import { combineReducers } from "redux";
+import { Action } from "../interfaces/Action";
+import { ActionType } from "../interfaces/ActionType";
+import { Post } from "../interfaces/Post";
 
-export const ActionType = {
-  CREATE: "CREATE",
-  READ: "READ",
-  UPDATE: "UPDATE",
-  DELETE: "DELETE",
-};
-
-const postReducer = (state = [], action) => {
+export const postReducer = (state: Post[] = [], action: Action) => {
   switch (action.type) {
     case ActionType.READ:
       return action.payload;
     case ActionType.CREATE:
       return [...state, action.payload];
     case ActionType.UPDATE:
-      const newItems = JSON.parse(JSON.stringify(state));
+      const newItems: Post[] = JSON.parse(JSON.stringify(state));
       const updateIndex = newItems.findIndex(
         (item) => item.id === action.payload.id
       );
@@ -26,7 +22,3 @@ const postReducer = (state = [], action) => {
       return state;
   }
 };
-
-export default combineReducers({
-  posts: postReducer,
-});

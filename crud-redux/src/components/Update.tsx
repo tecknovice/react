@@ -2,9 +2,17 @@ import Form from "./Form";
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { readPosts, updatePost } from "../actions/";
+import { readPosts, updatePost } from "../actions";
+import { Post } from "../interfaces/Post";
+import { StoreState } from "../reducers";
 
-const Update = ({ posts, readPosts, updatePost }) => {
+export interface UpdateProps {
+  posts: Post[];
+  readPosts: Function;
+  updatePost: Function;
+}
+
+const Update = ({ posts, readPosts, updatePost }: UpdateProps) => {
   const navigate = useNavigate();
   const params = useParams();
 
@@ -18,14 +26,17 @@ const Update = ({ posts, readPosts, updatePost }) => {
     content: "",
   });
 
-  useEffect(async () => {
-    await readPosts();
-    const id = Number(params.id);
-    const currentItem = posts.find((post) => post.id === id);
-    if (currentItem) setItem(currentItem);
+  useEffect(() => {
+    async function fetchData() {
+      await readPosts();
+      const id = Number(params.id);
+      const currentItem = posts.find((post) => post.id === id);
+      if (currentItem) setItem(currentItem);
+    }
+    fetchData();
   }, []);
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     switch (name) {
       case "title":
@@ -39,7 +50,7 @@ const Update = ({ posts, readPosts, updatePost }) => {
     setItem({ ...item, [name]: value });
   };
 
-  async function handleSubmit(event) {
+  async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     await updatePost(item);
     navigate("/list");
@@ -55,7 +66,7 @@ const Update = ({ posts, readPosts, updatePost }) => {
   );
 };
 
-const mapStateToProps = (state) => state;
+const mapStateToProps = (state: StoreState) => state;
 
 const mapDispatchToProps = { readPosts, updatePost };
 

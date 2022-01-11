@@ -2,8 +2,16 @@ import React from "react";
 import { connect } from "react-redux";
 import { readPosts, deletePost } from "../actions";
 import { Link } from "react-router-dom";
+import { Post } from "../interfaces/Post";
+import { StoreState } from "../reducers";
 
-class List extends React.Component {
+interface ListProps {
+  posts: Post[];
+  readPosts: Function;
+  deletePost: Function;
+}
+
+class List extends React.Component<ListProps> {
   async componentDidMount() {
     if (this.props.posts.length === 0) await this.props.readPosts();
   }
@@ -34,7 +42,9 @@ class List extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => state;
+const mapStateToProps = ({ posts }: StoreState): { posts: Post[] } => {
+  return { posts };
+};
 
 const mapDispatchToProps = { readPosts, deletePost };
 
