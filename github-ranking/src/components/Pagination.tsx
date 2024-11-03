@@ -13,14 +13,11 @@ export function Pagination({ page }: PaginationType) {
             Previous
           </a>
         </li>
-        <li className="page-item active">
-          <a className="page-link" href={`?page=${page}`}>
-            {page}
-          </a>
-        </li>
 
         <li className="page-item">
-          <a className="page-link" href={`?page=${page + 1}`}>
+          <a
+            className={`page-link ${page >= 10 ? 'disabled' : ''}`}
+            href={`?page=${page + 1}`}>
             Next
           </a>
         </li>
